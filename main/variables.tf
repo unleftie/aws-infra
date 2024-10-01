@@ -4,17 +4,16 @@ variable "region" {
   default     = "eu-central-1"
 }
 
-# VPC 1
-variable "vpc1_cidr" {
+variable "vpc_cidr" {
   description = "The IPv4 CIDR block for the VPC."
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.10.0.0/16"
 }
 
-variable "vpc1_name" {
+variable "vpc_name" {
   description = "Name to be used on all VPC resources as identifier."
   type        = string
-  default     = "vpc1"
+  default     = "main"
 }
 
 variable "budget_limit_amount" {
