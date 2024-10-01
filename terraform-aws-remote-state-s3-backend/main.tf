@@ -3,26 +3,23 @@ module "this" {
   version = "~> 1.6"
 
   terraform_iam_policy_create      = false
-  terraform_iam_policy_name_prefix = "${var.owner}_terraform"
+  terraform_iam_policy_name_prefix = "${local.tags["Owner"]}_terraform"
 
-  kms_key_alias                   = "${var.owner}-tf-remote-state-key"
+  kms_key_alias                   = "${local.tags["Owner"]}-tf-remote-state-key"
   kms_key_deletion_window_in_days = 7
 
-  state_bucket_prefix = "${var.owner}-tf-remote-state"
+  state_bucket_prefix = "${local.tags["Owner"]}-tf-remote-state"
 
   enable_replication    = false
-  replica_bucket_prefix = "${var.owner}-tf-remote-state-replica"
+  replica_bucket_prefix = "${local.tags["Owner"]}-tf-remote-state-replica"
 
-  iam_role_name_prefix       = "${var.owner}-tf-remote-state-replication-role"
-  iam_policy_name_prefix     = "${var.owner}-tf-remote-state-replication-policy"
-  iam_policy_attachment_name = "${var.owner}-tf-iam-role-attachment-replication-configuration"
+  iam_role_name_prefix       = "${local.tags["Owner"]}-tf-remote-state-replication-role"
+  iam_policy_name_prefix     = "${local.tags["Owner"]}-tf-remote-state-replication-policy"
+  iam_policy_attachment_name = "${local.tags["Owner"]}-tf-iam-role-attachment-replication-configuration"
 
-  dynamodb_table_name = "${var.owner}-tf-remote-state-lock"
+  dynamodb_table_name = "${local.tags["Owner"]}-tf-remote-state-lock"
 
-  tags = {
-    managed_by = "Terraform"
-    owner      = var.owner
-  }
+  tags = local.tags
 
   providers = {
     aws         = aws

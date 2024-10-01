@@ -9,8 +9,3 @@ variable "replica_region" {
   type        = string
   default     = "us-west-1"
 }
-
-variable "owner" {
-  type    = string
-  default = "unleftie"
-}

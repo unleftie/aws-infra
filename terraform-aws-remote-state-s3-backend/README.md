@@ -1,4 +1,4 @@
-# terraform-aws-remote-state-s3-backend |
+# terraform-aws-remote-state-s3-backend terraform module
 
 <!-- BEGIN_TF_DOCS -->
 
@@ -19,7 +19,6 @@
 
 | Name                                                                        | Description                                             | Type     | Default          | Required |
 | --------------------------------------------------------------------------- | ------------------------------------------------------- | -------- | ---------------- | :------: |
-| <a name="input_owner"></a> [owner](#input_owner)                            | n/a                                                     | `string` | `"unleftie"`     |    no    |
 | <a name="input_region"></a> [region](#input_region)                         | The AWS region in which resources are set up.           | `string` | `"eu-central-1"` |    no    |
 | <a name="input_replica_region"></a> [replica_region](#input_replica_region) | The AWS region to which the state bucket is replicated. | `string` | `"us-west-1"`    |    no    |
 
