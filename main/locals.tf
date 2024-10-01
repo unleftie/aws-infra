@@ -1,12 +1,12 @@
 locals {
-  application = "aws-infra"
+  application = "main"
 
   tags = {
     Project     = local.application
     ManagedBy   = "Terraform"
-    Application = "AWS Infra Service"
+    Application = local.application
     Owner       = "unleftie"
-    GitRepo     = "github.com/unleftie/${local.application}"
+    GitRepo     = "github.com/unleftie/aws-infra"
   }
 
   vpc_azs = slice(data.aws_availability_zones.available.names, 0, 3)
