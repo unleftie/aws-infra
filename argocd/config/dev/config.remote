@@ -1,0 +1,6 @@
+bucket         = "unleftie-tf-remote-state20241001143819864600000001"
+dynamodb_table = "unleftie-tf-remote-state-lock"
+encrypt        = true
+key            = "services/aws-infra/argocd.tfstate"
+kms_key_id     = "010faad4-8eb2-42f3-9821-a2aac5077fe2"
+region         = "eu-central-1"
