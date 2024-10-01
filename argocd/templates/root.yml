@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    namespace: argocd
+  sources:
+    - repoURL: "${repoURL1}"
+      path: "${path1}"
+      targetRevision: "${targetRevision1}"
+    - repoURL: "${repoURL2}"
+      path: "${path2}"
+      targetRevision: "${targetRevision2}"
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
