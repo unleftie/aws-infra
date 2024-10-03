@@ -1,3 +1,9 @@
+resource "kubernetes_namespace" "argocd" {
+  metadata {
+    name = "argocd"
+  }
+}
+
 module "argocd" {
   source  = "terraform-module/release/helm"
   version = "~> 2.6"
@@ -8,7 +14,7 @@ module "argocd" {
   app = {
     name          = "argocd"
     version       = "7.6.7"
-    chart         = "argo/argo-cd"
+    chart         = "argo-cd"
     force_update  = true
     wait          = false
     recreate_pods = false
@@ -25,4 +31,6 @@ module "argocd" {
       value = "argocd"
     },
   ]
+
+  depends_on = [kubernetes_namespace.argocd]
 }
