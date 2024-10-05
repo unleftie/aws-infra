@@ -1,5 +1,7 @@
 # k8s-resources terraform module
 
+Should be applied after the `argocd-helm-chart` module to create additional resources in the EKS cluster using Argo CD applications
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Requirements

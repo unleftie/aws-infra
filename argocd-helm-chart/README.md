@@ -1,5 +1,7 @@
 # argo-cd-helm-chart terraform module
 
+Should be applied after the `main` module to create an Argo CD Helm chart in the EKS cluster
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Requirements

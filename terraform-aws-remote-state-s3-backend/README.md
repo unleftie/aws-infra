@@ -1,5 +1,7 @@
 # terraform-aws-remote-state-s3-backend terraform module
 
+Should be applied before any other terraform module to create a remote state backend in AWS S3
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Requirements

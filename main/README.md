@@ -1,5 +1,7 @@
 # main terraform module
 
+Should be applied after the `terraform-aws-remote-state-s3-backend` module to create the main infrastructure in AWS
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Requirements
