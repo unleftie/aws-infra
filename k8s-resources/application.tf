@@ -1,4 +1,3 @@
-# FIXME: move to another module
 resource "kubernetes_manifest" "argocd_root" {
   manifest = yamldecode(templatefile("${path.module}/templates/root.yml", {
     path1           = var.git_source1.path
