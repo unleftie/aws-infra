@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack-crds
+  name: "${name}"
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   sources:
     - repoURL: "${repoURL}"
       path: "${path}"
-      targetRevision: "${targetRevision1}"
+      targetRevision: "${targetRevision}"
   project: default
   syncPolicy:
     automated:

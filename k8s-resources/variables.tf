@@ -5,21 +5,21 @@ variable "region" {
 }
 
 variable "prometheus_blackbox_exporter_template" {
-  type = map(string)
+  type = map(any)
 }
 
 variable "kube_prometheus_stack_template" {
-  type = map(string)
+  type = map(any)
 }
 
 variable "kube_prometheus_stack_crds_template" {
-  type = map(string)
+  type = map(any)
 }
 
 variable "ingress_nginx_template" {
-  type = map(string)
+  type = map(any)
 }
 
 variable "ingress_nginx_crds_template" {
-  type = map(string)
+  type = map(any)
 }

@@ -22,9 +22,9 @@ module "eks" {
   subnet_ids = module.vpc.public_subnets
 
   eks_managed_node_groups = {
-    main = {
+    main1 = {
       ami_type       = "AL2023_ARM_64_STANDARD"
-      instance_types = ["t4g.medium"]
+      instance_types = ["t4g.large"]
       capacity_type  = "SPOT"
 
       # This value is ignored after the initial creation
