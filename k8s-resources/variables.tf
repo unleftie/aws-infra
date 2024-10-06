@@ -23,3 +23,7 @@ variable "ingress_nginx_template" {
 variable "ingress_nginx_crds_template" {
   type = map(any)
 }
+
+variable "docker_gs_ping_template" {
+  type = map(any)
+}
