@@ -19,3 +19,7 @@ variable "kube_prometheus_stack_crds_template" {
 variable "ingress_nginx_template" {
   type = map(string)
 }
+
+variable "ingress_nginx_crds_template" {
+  type = map(string)
+}
