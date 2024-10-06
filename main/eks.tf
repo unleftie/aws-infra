@@ -2,10 +2,10 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.24"
 
-  create = false
+  create = true
 
   cluster_name    = "${local.application}-cluster"
-  cluster_version = "1.30"
+  cluster_version = "1.31"
 
   cluster_endpoint_private_access          = false # FIXME: unsafe
   cluster_endpoint_public_access           = true  # FIXME: unsafe
@@ -23,14 +23,15 @@ module "eks" {
 
   eks_managed_node_groups = {
     main = {
-      # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
-      instance_types = ["t3.medium"]
+      ami_type       = "AL2023_ARM_64_STANDARD"
+      instance_types = ["t4g.medium"]
+      capacity_type  = "SPOT"
 
-      min_size = 2
-      max_size = 3
       # This value is ignored after the initial creation
       # https://github.com/bryantbiggs/eks-desired-size-hack
       desired_size = 2
+      min_size     = 2
+      max_size     = 3
     }
   }
 
