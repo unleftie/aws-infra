@@ -29,9 +29,9 @@ module "eks" {
 
       # This value is ignored after the initial creation
       # https://github.com/bryantbiggs/eks-desired-size-hack
-      desired_size = 2
-      min_size     = 2
-      max_size     = 3
+      desired_size = 1
+      min_size     = 1
+      max_size     = 2
     }
   }
 
