@@ -1,5 +1,5 @@
-resource "kubernetes_namespace" "network" {
+resource "kubernetes_namespace" "networking" {
   metadata {
-    name = "network"
+    name = "networking"
   }
 }

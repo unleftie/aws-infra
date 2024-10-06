@@ -5,5 +5,5 @@ resource "kubernetes_manifest" "ingress_nginx" {
     targetRevision = var.ingress_nginx_template.targetRevision
   }))
 
-  depends_on = [kubernetes_manifest.network]
+  depends_on = [kubernetes_manifest.networking]
 }
