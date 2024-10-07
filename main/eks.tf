@@ -22,7 +22,7 @@ module "eks" {
   subnet_ids = module.vpc.public_subnets
 
   eks_managed_node_groups = {
-    main1 = {
+    main = {
       ami_type       = "AL2023_ARM_64_STANDARD"
       instance_types = ["t4g.large"]
       capacity_type  = "SPOT"
@@ -37,3 +37,21 @@ module "eks" {
 
   tags = local.tags
 }
+
+# resource "aws_security_group_rule" "webhook_admission_inbound" {
+#   type                     = "ingress"
+#   from_port                = 8443
+#   to_port                  = 8443
+#   protocol                 = "tcp"
+#   security_group_id        = module.eks.node_security_group_id
+#   source_security_group_id = module.eks.cluster_primary_security_group_id
+# }
+
+# resource "aws_security_group_rule" "webhook_admission_outbound" {
+#   type                     = "egress"
+#   from_port                = 8443
+#   to_port                  = 8443
+#   protocol                 = "tcp"
+#   security_group_id        = module.eks.node_security_group_id
+#   source_security_group_id = module.eks.cluster_primary_security_group_id
+# }
