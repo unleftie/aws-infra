@@ -19,6 +19,9 @@ module "this" {
 
   dynamodb_table_name = "${local.tags["Owner"]}-tf-remote-state-lock"
 
+  s3_bucket_force_destroy              = true
+  dynamodb_deletion_protection_enabled = false
+
   tags = local.tags
 
   providers = {
